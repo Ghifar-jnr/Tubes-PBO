@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="(link unavailable)" xmlns:fx="(link unavailable)" fx:controller="TiketController">
+    <children>
+        <Label text="Data Pembelian Tiket"/>
+        <TableView fx:id="tblPembelian">
+            <columns>
+                <TableColumn fx:id="colNama" text="Nama".setCellValueFactory="new PropertyValueFactory('nama')"/>
+                <TableColumn fx:id="colJumlahTiket" text="Jumlah Tiket".setCellValueFactory="new PropertyValueFactory('jumlahTiket')"/>
+                <TableColumn fx:id="colHarga" text="Harga".setCellValueFactory="new PropertyValueFactory('harga')"/>
+            </columns>
+        </TableView>
+    </children>
+</VBox>

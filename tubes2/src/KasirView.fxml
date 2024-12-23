@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="(link unavailable)" xmlns:fx="(link unavailable)" fx:controller="KasirController">
+    <children>
+        <Label text="Nama:"/>
+        <TextField fx:id="txtNama"/>
+        <Label text="Jumlah Tiket:"/>
+        <TextField fx:id="txtJumlahTiket"/>
+        <Button fx:id="btnBeli" text="Beli Tiket"/>
+        <Label fx:id="lblHarga" text="Harga: Rp 0"/>
+    </children>
+</VBox>
+
