@@ -15,8 +15,8 @@
             "name": "App",
             "request": "launch",
             "mainClass": "App",
-            "projectName": "Tubes-PBO_9afc7554",
-            "vmArgs": "--module-path \"/Users/divacahyahakim/Downloads/javafx-sdk-23.0.1 /lib\" --add-modules javafx.controls,javafx.fxml"
+            "projectName": "Tubes-PBO_1b5c205c",
+            "vmArgs": "--module-path \"C:/Users/ASUS/openjfx-23.0.1_windows-x64_bin-sdk/javafx-sdk-23.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

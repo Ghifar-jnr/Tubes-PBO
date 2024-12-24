@@ -21,10 +21,18 @@ public class App extends Application {
         menuLayout.setSpacing(20);
         menuLayout.setStyle("-fx-background-color: linear-gradient(to bottom, #87CEEB, #ffffff);");
 
-        Text header = new Text("Selamat Datang, Di Pembelian Tiket Dufan");
+        Text header = new Text("Selamat Datang");
+        Text header2 = new Text("Di");
+        Text header3 = new Text("Pembelian Tiket Dufan");
         header.setFont(Font.font("Arial", FontWeight.BOLD, 24));
         header.setFill(Color.DARKBLUE);
+        header2.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        header2.setFill(Color.DARKBLUE);
+        header3.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        header3.setFill(Color.DARKBLUE);
         menuLayout.getChildren().add(header);
+        menuLayout.getChildren().add(header2);
+        menuLayout.getChildren().add(header3);
 
         Button viewTicketsButton = new Button("Tiket Tersedia");
         viewTicketsButton.setStyle("-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");

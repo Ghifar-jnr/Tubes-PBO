@@ -1,14 +1,13 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "/Users/divacahyahakim/Downloads/javafx-sdk-23.0.1 /lib/javafx-swt.jar",
-        "/Users/divacahyahakim/Downloads/javafx-sdk-23.0.1 /lib/javafx.base.jar",
-        "/Users/divacahyahakim/Downloads/javafx-sdk-23.0.1 /lib/javafx.controls.jar",
-        "/Users/divacahyahakim/Downloads/javafx-sdk-23.0.1 /lib/javafx.fxml.jar",
-        "/Users/divacahyahakim/Downloads/javafx-sdk-23.0.1 /lib/javafx.graphics.jar",
-        "/Users/divacahyahakim/Downloads/javafx-sdk-23.0.1 /lib/javafx.media.jar",
-        "/Users/divacahyahakim/Downloads/javafx-sdk-23.0.1 /lib/javafx.swing.jar",
-        "/Users/divacahyahakim/Downloads/javafx-sdk-23.0.1 /lib/javafx.web.jar"
-    ],
-    "java.debug.settings.onBuildFailureProceed": true
+        "c:\\Users\\ASUS\\openjfx-23.0.1_windows-x64_bin-sdk\\javafx-sdk-23.0.1\\lib\\javafx.base.jar",
+        "c:\\Users\\ASUS\\openjfx-23.0.1_windows-x64_bin-sdk\\javafx-sdk-23.0.1\\lib\\javafx.controls.jar",
+        "c:\\Users\\ASUS\\openjfx-23.0.1_windows-x64_bin-sdk\\javafx-sdk-23.0.1\\lib\\javafx.fxml.jar",
+        "c:\\Users\\ASUS\\openjfx-23.0.1_windows-x64_bin-sdk\\javafx-sdk-23.0.1\\lib\\javafx.graphics.jar",
+        "c:\\Users\\ASUS\\openjfx-23.0.1_windows-x64_bin-sdk\\javafx-sdk-23.0.1\\lib\\javafx.media.jar",
+        "c:\\Users\\ASUS\\openjfx-23.0.1_windows-x64_bin-sdk\\javafx-sdk-23.0.1\\lib\\javafx.swing.jar",
+        "c:\\Users\\ASUS\\openjfx-23.0.1_windows-x64_bin-sdk\\javafx-sdk-23.0.1\\lib\\javafx.web.jar",
+        "c:\\Users\\ASUS\\openjfx-23.0.1_windows-x64_bin-sdk\\javafx-sdk-23.0.1\\lib\\javafx-swt.jar"
+    ]
 }
