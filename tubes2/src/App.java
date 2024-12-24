@@ -16,19 +16,16 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Dufan");
 
-        // Create main menu layout
         VBox menuLayout = new VBox();
         menuLayout.setPadding(new Insets(20));
         menuLayout.setSpacing(20);
         menuLayout.setStyle("-fx-background-color: linear-gradient(to bottom, #87CEEB, #ffffff);");
 
-        // Header text
         Text header = new Text("Selamat Datang, Di Pembelian Tiket Dufan");
         header.setFont(Font.font("Arial", FontWeight.BOLD, 24));
         header.setFill(Color.DARKBLUE);
         menuLayout.getChildren().add(header);
 
-        // Buttons for options
         Button viewTicketsButton = new Button("Tiket Tersedia");
         viewTicketsButton.setStyle("-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
         Button purchaseTicketsButton = new Button("Beli Tiket");
@@ -37,10 +34,8 @@ public class App extends Application {
         menuLayout.getChildren().addAll(viewTicketsButton, purchaseTicketsButton);
         menuLayout.setAlignment(Pos.CENTER);
 
-        // Main scene
         Scene menuScene = new Scene(menuLayout, 550, 300);
 
-        // Set up view tickets scene
         VBox viewTicketsLayout = new VBox();
         viewTicketsLayout.setPadding(new Insets(20));
         viewTicketsLayout.setSpacing(15);
@@ -50,25 +45,41 @@ public class App extends Application {
         viewTicketsHeader.setFont(Font.font("Arial", FontWeight.BOLD, 20));
         viewTicketsHeader.setFill(Color.DARKBLUE);
 
-        HBox ticketBox = new HBox();
-        ticketBox.setSpacing(20);
-        ticketBox.setAlignment(Pos.CENTER);
+        HBox topRow = new HBox();
+        topRow.setSpacing(20);
+        topRow.setPadding(new Insets(10, 0, 10, 0));
+        topRow.setAlignment(Pos.CENTER);
 
+        HBox bottomRow = new HBox();
+        bottomRow.setSpacing(20);
+        bottomRow.setPadding(new Insets(10, 0, 10, 0));
+        bottomRow.setAlignment(Pos.CENTER);
+
+        // Membuat daftar tiket
         VBox regularBox = createTicketBox("Regular", "Rp 100,000", "Akses reguler untuk menikmati wahana.");
         VBox fastTrackBox = createTicketBox("Fast Track", "Rp 200,000", "Antrian lebih cepat.");
         VBox premiumBox = createTicketBox("Premium", "Rp 500,000", "Akses eksklusif tanpa antri.");
+        VBox anual6Box = createTicketBox("Anual 6 Bulan", "Rp 250.000", "Nikmati ke Dufan setiap hari selama 6 bulan.");
+        VBox anual12Box = createTicketBox("Anual 12 Bulan", "Rp 365.000", "Nikmati ke Dufan setiap hari selama 12 bulan.");
 
-        ticketBox.getChildren().addAll(regularBox, fastTrackBox, premiumBox);
+        topRow.getChildren().addAll(regularBox, fastTrackBox, premiumBox);
+        bottomRow.getChildren().addAll(anual6Box, anual12Box);
+
+        VBox ticketLayout = new VBox();
+        ticketLayout.setSpacing(20);
+        ticketLayout.setPadding(new Insets(20));
+        ticketLayout.setAlignment(Pos.CENTER);
+        ticketLayout.getChildren().addAll(topRow, bottomRow);
+
 
         Button backToMenuButton1 = new Button("Kembali ke Menu");
         backToMenuButton1.setStyle("-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
 
-        viewTicketsLayout.getChildren().addAll(viewTicketsHeader, ticketBox, backToMenuButton1);
+        viewTicketsLayout.getChildren().addAll(viewTicketsHeader, ticketLayout, backToMenuButton1);
         viewTicketsLayout.setAlignment(Pos.CENTER);
 
         Scene viewTicketsScene = new Scene(viewTicketsLayout, 550, 400);
 
-        // Set up purchase tickets scene
         VBox purchaseTicketsLayout = new VBox();
         purchaseTicketsLayout.setPadding(new Insets(20));
         purchaseTicketsLayout.setSpacing(15);
@@ -81,13 +92,11 @@ public class App extends Application {
         Button backToMenuButton2 = new Button("Kembali ke Menu");
         backToMenuButton2.setStyle("-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
 
-        // Integrate existing ticket purchase layout
         DufanTicketPaymentContent ticketPaymentContent = new DufanTicketPaymentContent();
         purchaseTicketsLayout.getChildren().addAll(purchaseHeader, ticketPaymentContent.getContent(), backToMenuButton2);
 
         Scene purchaseTicketsScene = new Scene(purchaseTicketsLayout, 500, 500);
 
-        // Button actions
         viewTicketsButton.setOnAction(e -> primaryStage.setScene(viewTicketsScene));
         purchaseTicketsButton.setOnAction(e -> primaryStage.setScene(purchaseTicketsScene));
         backToMenuButton1.setOnAction(e -> primaryStage.setScene(menuScene));
@@ -103,20 +112,20 @@ public class App extends Application {
         ticketBox.setSpacing(10);
         ticketBox.setAlignment(Pos.CENTER);
         ticketBox.setStyle("-fx-border-color: #4682B4; -fx-border-width: 2px; -fx-background-color: #E8F0FE; -fx-border-radius: 5px; -fx-background-radius: 5px;");
-
+    
         Text titleText = new Text(title);
         titleText.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         titleText.setFill(Color.DARKBLUE);
-
+    
         Text priceText = new Text(price);
         priceText.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         priceText.setFill(Color.DARKGREEN);
-
+    
         Label descriptionLabel = new Label(description);
         descriptionLabel.setWrapText(true);
         descriptionLabel.setFont(Font.font("Arial", 12));
         descriptionLabel.setStyle("-fx-text-fill: #333333;");
-
+    
         ticketBox.getChildren().addAll(titleText, priceText, descriptionLabel);
         return ticketBox;
     }
@@ -126,7 +135,7 @@ public class App extends Application {
     }
 }
 
-// Separate class for ticket payment content
+// payment tiket dufan
 class DufanTicketPaymentContent {
     private final TextField nameField = new TextField();
     private final ComboBox<String> ticketTypeCombo = new ComboBox<>();
@@ -137,24 +146,19 @@ class DufanTicketPaymentContent {
         VBox content = new VBox();
         content.setSpacing(15);
 
-        // Nama
         Label nameLabel = new Label("Nama :");
         nameField.setStyle("-fx-background-color: #E8F0FE; -fx-border-color: #4682B4;");
 
-        // Tipe Tiket
         Label ticketTypeLabel = new Label("Tipe Tiket :");
-        ticketTypeCombo.getItems().addAll("Regular", "Fast Track", "Premium");
+        ticketTypeCombo.getItems().addAll("Regular", "Fast Track", "Premium", "Anual 6 Bulan", "Anual 12 Bulan");
         ticketTypeCombo.setStyle("-fx-background-color: #E8F0FE; -fx-border-color: #4682B4;");
 
-        // Jumlah Tiket
         Label quantityLabel = new Label("Jumlah Tiket :");
         quantitySpinner.setStyle("-fx-background-color: #E8F0FE; -fx-border-color: #4682B4;");
 
-        // Total Harga label
         Label totalPriceLabel = new Label("Total Harga :");
         totalPriceValue.setTextFill(Color.DARKGREEN);
 
-        // button Bayar
         Button payButton = new Button("Bayar");
         payButton.setStyle("-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
 
@@ -162,30 +166,37 @@ class DufanTicketPaymentContent {
         final int regularPrice = 100000;
         final int vipPrice = 200000;
         final int familyPackagePrice = 500000;
+        final int anual6Price = 250000;
+        final int anual12Price = 365000;
 
-        ticketTypeCombo.setOnAction(e -> updateTotalPrice(regularPrice, vipPrice, familyPackagePrice));
-        quantitySpinner.valueProperty().addListener((obs, oldValue, newValue) -> updateTotalPrice(regularPrice, vipPrice, familyPackagePrice));
+        ticketTypeCombo.setOnAction(e -> updateTotalPrice(regularPrice, vipPrice, familyPackagePrice, anual6Price, anual12Price));
+        quantitySpinner.valueProperty().addListener((obs, oldValue, newValue) -> updateTotalPrice(regularPrice, vipPrice, familyPackagePrice, anual6Price, anual12Price));
 
-        // Handle payment button
         payButton.setOnAction(e -> handlePayment());
 
         content.getChildren().addAll(nameLabel, nameField, ticketTypeLabel, ticketTypeCombo, quantityLabel, quantitySpinner, totalPriceLabel, totalPriceValue, payButton);
         return content;
     }
 
-    private void updateTotalPrice(int regularPrice, int vipPrice, int familyPackagePrice) {
+    private void updateTotalPrice(int regularPrice, int vipPrice, int familyPackagePrice, int anual6Price, int anual12Price) {
         String ticketType = ticketTypeCombo.getValue();
         int quantity = quantitySpinner.getValue();
         int price = 0;
 
+        // Logika penghitungan harga berdasarkan tipe tiket
         if ("Regular".equals(ticketType)) {
             price = regularPrice * quantity;
         } else if ("Fast Track".equals(ticketType)) {
             price = vipPrice * quantity;
         } else if ("Premium".equals(ticketType)) {
             price = familyPackagePrice * quantity;
+        } else if ("Anual 6 Bulan".equals(ticketType)) {
+            price = anual6Price * quantity;
+        } else if ("Anual 12 Bulan".equals(ticketType)) {
+            price = anual12Price * quantity;
         }
 
+        // Format dan tampilkan total harga
         totalPriceValue.setText(String.format("Rp %,d", price));
     }
 
