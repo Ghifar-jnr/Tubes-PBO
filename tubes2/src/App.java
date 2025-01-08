@@ -30,9 +30,11 @@ public class App extends Application {
 
         // Buttons for options
         Button viewTicketsButton = new Button("Tiket Tersedia");
-        viewTicketsButton.setStyle("-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
+        viewTicketsButton.setStyle(
+                "-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
         Button purchaseTicketsButton = new Button("Beli Tiket");
-        purchaseTicketsButton.setStyle("-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
+        purchaseTicketsButton.setStyle(
+                "-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
 
         menuLayout.getChildren().addAll(viewTicketsButton, purchaseTicketsButton);
         menuLayout.setAlignment(Pos.CENTER);
@@ -61,7 +63,8 @@ public class App extends Application {
         ticketBox.getChildren().addAll(regularBox, fastTrackBox, premiumBox);
 
         Button backToMenuButton1 = new Button("Kembali ke Menu");
-        backToMenuButton1.setStyle("-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
+        backToMenuButton1.setStyle(
+                "-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
 
         viewTicketsLayout.getChildren().addAll(viewTicketsHeader, ticketBox, backToMenuButton1);
         viewTicketsLayout.setAlignment(Pos.CENTER);
@@ -79,11 +82,13 @@ public class App extends Application {
         purchaseHeader.setFill(Color.DARKBLUE);
 
         Button backToMenuButton2 = new Button("Kembali ke Menu");
-        backToMenuButton2.setStyle("-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
+        backToMenuButton2.setStyle(
+                "-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Integrate existing ticket purchase layout
         DufanTicketPaymentContent ticketPaymentContent = new DufanTicketPaymentContent();
-        purchaseTicketsLayout.getChildren().addAll(purchaseHeader, ticketPaymentContent.getContent(), backToMenuButton2);
+        purchaseTicketsLayout.getChildren().addAll(purchaseHeader, ticketPaymentContent.getContent(),
+                backToMenuButton2);
 
         Scene purchaseTicketsScene = new Scene(purchaseTicketsLayout, 500, 500);
 
@@ -102,7 +107,8 @@ public class App extends Application {
         ticketBox.setPadding(new Insets(10));
         ticketBox.setSpacing(10);
         ticketBox.setAlignment(Pos.CENTER);
-        ticketBox.setStyle("-fx-border-color: #4682B4; -fx-border-width: 2px; -fx-background-color: #E8F0FE; -fx-border-radius: 5px; -fx-background-radius: 5px;");
+        ticketBox.setStyle(
+                "-fx-border-color: #4682B4; -fx-border-width: 2px; -fx-background-color: #E8F0FE; -fx-border-radius: 5px; -fx-background-radius: 5px;");
 
         Text titleText = new Text(title);
         titleText.setFont(Font.font("Arial", FontWeight.BOLD, 16));
@@ -156,7 +162,8 @@ class DufanTicketPaymentContent {
 
         // button Bayar
         Button payButton = new Button("Bayar");
-        payButton.setStyle("-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
+        payButton.setStyle(
+                "-fx-background-color: #4682B4; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;");
 
         // Set Harga Tiket
         final int regularPrice = 100000;
@@ -164,12 +171,14 @@ class DufanTicketPaymentContent {
         final int familyPackagePrice = 500000;
 
         ticketTypeCombo.setOnAction(e -> updateTotalPrice(regularPrice, vipPrice, familyPackagePrice));
-        quantitySpinner.valueProperty().addListener((obs, oldValue, newValue) -> updateTotalPrice(regularPrice, vipPrice, familyPackagePrice));
+        quantitySpinner.valueProperty()
+                .addListener((obs, oldValue, newValue) -> updateTotalPrice(regularPrice, vipPrice, familyPackagePrice));
 
         // Handle payment button
         payButton.setOnAction(e -> handlePayment());
 
-        content.getChildren().addAll(nameLabel, nameField, ticketTypeLabel, ticketTypeCombo, quantityLabel, quantitySpinner, totalPriceLabel, totalPriceValue, payButton);
+        content.getChildren().addAll(nameLabel, nameField, ticketTypeLabel, ticketTypeCombo, quantityLabel,
+                quantitySpinner, totalPriceLabel, totalPriceValue, payButton);
         return content;
     }
 
@@ -201,7 +210,8 @@ class DufanTicketPaymentContent {
         }
 
         showAlert(Alert.AlertType.INFORMATION, "Pembayaran Berhasil", String.format(
-                "Nama : %s\nTipe Tiket : %s\nJumlah Tiket : %d\nTotal Harga : %s", name, ticketType, quantity, totalPrice));
+                "Nama : %s\nTipe Tiket : %s\nJumlah Tiket : %d\nTotal Harga : %s", name, ticketType, quantity,
+                totalPrice));
 
         resetFields();
     }
